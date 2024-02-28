@@ -17,4 +17,7 @@ jobs:
     environment: production
     steps:
       - name: Deploy
-        run: echo "Deploying to production"
+        env:
+          SECURE_SECRET: ${{ secrets.MY_SECURE_SECRET }}
+        run: |
+          echo "Deploying to production: $SECURE_SECRET"
